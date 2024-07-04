@@ -29,9 +29,11 @@ def down_load_from_anti_ad():
 
 def convert():
     # 检查当前目录是否有domains.txt
+    # if os.path.exists('domains.txt'):
     if os.path.exists('/home/runner/work/anti-ad-for-ros/anti-ad-for-ros/code/anti-ad-domains.txt'):
         # 执行转换
         # 打开文件进行读取
+        # with open('domains.txt', 'r', encoding='utf-8') as file:
         with open('/home/runner/work/anti-ad-for-ros/anti-ad-for-ros/code/anti-ad-domains.txt', 'r', encoding='utf-8') as file:
             lines = file.readlines()
 
@@ -57,6 +59,7 @@ def convert():
 
 if __name__ == '__main__':
     # 1. 下载文件
+    # 本地执行的话，可以用下面的方法，我放在actions中运行直接clone的上游仓库
     # down_load_from_anti_ad()
     # 2. 格式转换
     convert()
