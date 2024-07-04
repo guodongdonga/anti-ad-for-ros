@@ -29,13 +29,13 @@ def down_load_from_anti_ad():
 
 def convert():
     # 检查当前目录是否有domains.txt
-    if os.path.exists('/home/runner/work/anti-ad-ros/anti-ad-ros/code/anti-ad-domains.txt'):
+    if os.path.exists('/home/runner/work/anti-ad-for-ros/anti-ad-for-ros/code/anti-ad-domains.txt'):
         # 执行转换
         # 打开文件进行读取
-        with open('/home/runner/work/anti-ad-ros/anti-ad-ros/code/anti-ad-domains.txt', 'r', encoding='utf-8') as file:
+        with open('/home/runner/work/anti-ad-for-ros/anti-ad-for-ros/code/anti-ad-domains.txt', 'r', encoding='utf-8') as file:
             lines = file.readlines()
 
-        # 打开文件进行写入，创建新文件anti-ad-ros.conf
+        # 打开文件进行写入，创建新文件anti-ad-for-ros.conf
         with open('anti-ad-for-ros.conf', 'w', encoding='utf-8') as file:
             # 写入一行注释说明
             # file.write('# ROS dns adlist, converted from anti-ad.net\n')
@@ -54,8 +54,8 @@ def convert():
         print('没有找到anti-ad-domains.txt，可能clone失败了')
         # print当前目录内容
         print(os.listdir())
-        # print /home/runner/work/anti-ad-ros/anti-ad-ros/目录的内容
-        print(os.listdir('/home/runner/work/anti-ad-ros/anti-ad-ros/'))
+        # print /home/runner/work/anti-ad-for-ros/anti-ad-for-ros/目录的内容
+        print(os.listdir('/home/runner/work/anti-ad-for-ros/anti-ad-for-ros/'))
 
 
 if __name__ == '__main__':
