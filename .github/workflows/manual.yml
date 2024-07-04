@@ -1,0 +1,43 @@
+name: OnPush Update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Checkout upstream repository
+        uses: actions/checkout@v4
+        with:
+          repository: privacy-protection-tools/anti-AD
+          ref: master  # 或者指定其他分支
+          path: code  # 指定克隆到的工作目录路径
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run conversion script
+        run: python ./convert_ros_dns_adlist.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add anti-ad-for-ros.conf
+          git commit -m "Scheduled update" || exit 0
+          git push
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: '.'
