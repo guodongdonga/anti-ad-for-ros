@@ -52,10 +52,7 @@ def convert():
         print("文件转换完成。")
     else:
         print('没有找到anti-ad-domains.txt，可能clone失败了')
-        # print当前目录内容
-        print(os.listdir())
-        # print /home/runner/work/anti-ad-for-ros/anti-ad-for-ros/目录的内容
-        print(os.listdir('/home/runner/work/anti-ad-for-ros/anti-ad-for-ros/'))
+
 
 
 if __name__ == '__main__':
